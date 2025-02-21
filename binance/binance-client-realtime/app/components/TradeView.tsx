@@ -49,7 +49,7 @@ export function TradeView({
 
   return (
     <>
-      <div ref={chartRef} style={{ height: "520px", width: "100%", marginTop: 4 }}></div>
+      <div ref={chartRef} style={{ height: "520px", width: "95%", marginTop: 4, marginLeft: 2 } }></div>
     </>
   );
 }

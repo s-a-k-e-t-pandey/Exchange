@@ -1,12 +1,14 @@
 "use client";
 import { useState } from "react";
+import { marketIcons } from "./MarketBar";
 
 export function SwapUI({ market }: { market: string }) {
     const [amount, setAmount] = useState('');
     const [activeTab, setActiveTab] = useState('buy');
     const [type, setType] = useState('limit');
+    const IconComponent = marketIcons[market] ;
 
-    return <div className="flex flex-col gap-2 rounded-lg bg-gray-100">
+    return <div className="flex flex-col gap-2 rounded-lg bg-indigo-400 border border-4 border-gray-800">
         <div className="flex flex-col w-[332px] gap-4 rounded-lg px-[16px] py-[16px]">
             <div className=" bg-opacity-100">
                 <div className="relative flex flex-shrink-0 h-[48px] w-full overflow-hidden rounded-xl bg-slate-900">
@@ -35,8 +37,8 @@ export function SwapUI({ market }: { market: string }) {
                                 <div className="flex flex-col relative">
                                     <input step="0.01" placeholder="0" className="overflow-hidden h-12 rounded-lg border-2 border-solid border-baseBorderLight bg-[var(--background)] pr-12 text-right text-2xl leading-9 text-[$text] placeholder-baseTextMedEmphasis ring-0 transition focus:border-accentBlue focus:ring-0" type="text" value="134.38" />
                                     <div className="flex flex-row absolute right-1 top-1 p-2">
-                                        <div className="relative">
-                                            <img src="/usdc.webp" className="w-6 h-6" />
+                                        <div className="relative rounded-full border text-yellow-400 mr-1 p-0.5">
+                                            $$
                                         </div>
                                     </div>
                                 </div>
@@ -50,7 +52,7 @@ export function SwapUI({ market }: { market: string }) {
                                 <input step="0.01" placeholder="0" className="h-12 rounded-lg border-2 border-solid border-baseBorderLight bg-[var(--background)] pr-12 text-right text-2xl leading-9 text-[$text] placeholder-baseTextMedEmphasis ring-0 transition focus:border-accentBlue focus:ring-0" type="text" value="123" />
                                 <div className="flex flex-row absolute right-1 top-1 p-2">
                                     <div className="relative">
-                                        <img src="/sol.webp" className="w-6 h-6" />
+                                        {IconComponent}
                                     </div>
                                 </div>
                             </div>
@@ -58,16 +60,16 @@ export function SwapUI({ market }: { market: string }) {
                                 <p className="font-medium pr-2 text-xs text-baseTextMedEmphasis">≈ 0.00 USDC</p>
                             </div>
                             <div className="flex justify-center flex-row mt-2 gap-3">
-                                <div className="flex items-center justify-center flex-row rounded-full px-[16px] py-[6px] text-xs cursor-pointer bg-baseBackgroundL2 hover:bg-baseBackgroundL3">
+                                <div className="flex items-center justify-center flex-row rounded-full px-[16px] py-[6px] text-xs text-white cursor-pointer bg-baseBackgroundL2 hover:bg-baseBackgroundL3">
                                     25%
                                 </div>
-                                <div className="flex items-center justify-center flex-row rounded-full px-[16px] py-[6px] text-xs cursor-pointer bg-baseBackgroundL2 hover:bg-baseBackgroundL3">
+                                <div className="flex items-center justify-center flex-row rounded-full px-[16px] py-[6px] text-xs cursor-pointer text-white bg-baseBackgroundL2 hover:bg-baseBackgroundL3">
                                     50%
                                 </div>
-                                <div className="flex items-center justify-center flex-row rounded-full px-[16px] py-[6px] text-xs cursor-pointer bg-baseBackgroundL2 hover:bg-baseBackgroundL3">
+                                <div className="flex items-center text-white justify-center flex-row rounded-full px-[16px] py-[6px] text-xs cursor-pointer bg-baseBackgroundL2 hover:bg-baseBackgroundL3">
                                     75%
                                 </div>
-                                <div className="flex items-center justify-center flex-row rounded-full px-[16px] py-[6px] text-xs cursor-pointer bg-baseBackgroundL2 hover:bg-baseBackgroundL3">
+                                <div className="flex items-center justify-center text-white flex-row rounded-full px-[16px] py-[6px] text-xs cursor-pointer bg-baseBackgroundL2 hover:bg-baseBackgroundL3">
                                     Max
                                 </div>
                             </div>

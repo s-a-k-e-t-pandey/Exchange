@@ -23,7 +23,7 @@ export default function Page() {
         </div>
         <div className="w-[1px] flex-col border-slate-800 border-l"></div>
         <div className="">
-            <div className="relative overflow-hidden flex flex-col w-[280px] m-1">
+            <div className="relative overflow-hidden flex flex-col  m-1">
                 <SwapUI market={market as string} />
             </div>
         </div>

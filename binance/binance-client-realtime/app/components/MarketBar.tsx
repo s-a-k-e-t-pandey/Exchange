@@ -3,8 +3,8 @@ import { JSX, useEffect, useState } from "react";
 import { Ticker } from "@/app/utils/types";
 import { getTicker } from "@/app/utils/httpClient";
 import { SignalingManager } from "../utils/SignalingManager";
-import { ChevronDown } from "lucide-react";
-import { Bitcoin, Ethereum, Doge, Solana, Cardano } from "./Icons"; // Import your SVG components
+import { ChevronDown, ChevronUp } from "lucide-react";
+import { Bitcoin, Ethereum, Doge, Solana, Cardano } from "./Icons"; 
 
 
 export const MarketBar = ({market}: {market: string}) => {
@@ -110,7 +110,7 @@ export const MarketBar = ({market}: {market: string}) => {
 
 const TickerButton = ({market}: {market: string}) => {
     const IconComponent = marketIcons[market] || <Bitcoin />;
-
+    const [toggle, setToggel] = useState(true);
   
     return (
       <button
@@ -127,15 +127,14 @@ const TickerButton = ({market}: {market: string}) => {
             </p>
           </a>
         </div>
-  
-        <ChevronDown className="text-gray-400" />
+        <button>{toggle ? <ChevronDown className="text-gray-400" /> : <ChevronUp className="text-gray-400" />}</button>
+        
       </button>
     );
   };
 
-  const marketIcons: { [key: string]: JSX.Element } = {
+export const marketIcons: { [key: string]: JSX.Element } = {
     BTC_USDC: <Bitcoin />,
     ETH_USDC: <Ethereum />,
     SOL_USDC: <Solana />,
-    // Add more as needed
   };
